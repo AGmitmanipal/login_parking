@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Auth Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    
+    <!-- Toggle Buttons -->
+    <div class="toggle-buttons">
+      <button onclick="showSignUp()">Sign Up</button>
+      <button onclick="showLogIn()">Log In</button>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signup-form" class="auth-form">
+      <h2>Sign Up</h2>
+      <input id="signup-username" placeholder="Username" />
+      <input id="signup-email" type="email" placeholder="Email" />
+      <input id="signup-password" type="password" placeholder="Password" />
+      <input id="signup-confirm" type="password" placeholder="Confirm Password" />
+      <button onclick="signUp()">Sign Up</button>
+    </div>
+
+    <!-- Log In Form -->
+    <div id="login-form" class="auth-form" style="display: none;">
+      <h2>Log In</h2>
+      <input id="login-email" type="email" placeholder="Email" />
+      <input id="login-password" type="password" placeholder="Password" />
+      <button onclick="logIn()">Log In</button>
+      <button class="google-btn" onclick="googleLogin()">Continue with Google</button>
+    </div>
+
+  </div>
+
+  <!-- View Switcher Script -->
+  <script>
+    function showSignUp() {
+      document.getElementById("signup-form").style.display = "flex";
+      document.getElementById("login-form").style.display = "none";
+    }
+
+    function showLogIn() {
+      document.getElementById("signup-form").style.display = "none";
+      document.getElementById("login-form").style.display = "flex";
+    }
+  </script>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <!-- Your Firebase logic -->
+  <script src="app.js"></script>
+</body>
+</html>
